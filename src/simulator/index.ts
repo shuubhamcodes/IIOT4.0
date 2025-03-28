@@ -2,12 +2,12 @@ import axios from 'axios';
 import type { Machine, SensorReading } from './types';
 
 // Simulated JWT token - replace with actual token in production
-const JWT_TOKEN = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const JWT_TOKEN = 'your-jwt-token';
 
 // Machine configurations
 const machines: Machine[] = [
   {
-    id: '3e549d5c-b963-439a-aff8-30f0f2124b88',
+    id: 'machine-001',
     name: 'Hydraulic Press',
     minTemp: 20,
     maxTemp: 85,
@@ -19,7 +19,7 @@ const machines: Machine[] = [
     maxEnergy: 800
   },
   {
-    id: 'ce7f05a2-4e63-4225-b420-d6ea3bff371b',
+    id: 'machine-002',
     name: 'CNC Mill',
     minTemp: 18,
     maxTemp: 95,
@@ -31,7 +31,7 @@ const machines: Machine[] = [
     maxEnergy: 1000
   },
   {
-    id: '0c5aa235-ff7d-4a7e-99d3-743a0af56868',
+    id: 'machine-003',
     name: 'Industrial Furnace',
     minTemp: 100,
     maxTemp: 140,

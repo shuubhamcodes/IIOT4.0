@@ -9,15 +9,14 @@ import {
   SensorQuery,
   SensorRequestBody
 } from './types.js';
-import 'dotenv/config'
 
 const app = express();
 const port = 3000;
 
 // Initialize Supabase client
 const supabaseClient = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY
 );
 
 // Middleware
@@ -75,12 +74,11 @@ app.post<SensorParams, SuccessResponse | ErrorResponse, SensorRequestBody, Senso
       const token = authHeader.split(' ')[1];
 
       // Verify JWT token
-      // const { data: { user }, error: authError } = await supabaseClient.auth.getUser(token);
-      // if (authError || !user) {
-      //   res.status(401).json({ error: 'Invalid token' });
-      //   return;
-      // }
- 
+      const { data: { user }, error: authError } = await supabaseClient.auth.getUser(token);
+      if (authError || !user) {
+        res.status(401).json({ error: 'Invalid token' });
+        return;
+      }
 
       // Validate request body
       const validationError = validateSensorData(req.body);
@@ -91,7 +89,7 @@ app.post<SensorParams, SuccessResponse | ErrorResponse, SensorRequestBody, Senso
 
       // Store sensor reading in database
       const { error: insertError } = await supabaseClient
-        .from('sensor_readings')                                                    
+        .from('sensor_readings')
         .insert({
           asset_id: req.body.asset_id,
           temperature: req.body.temperature,
