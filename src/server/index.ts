@@ -9,15 +9,22 @@ import {
   SensorQuery,
   SensorRequestBody
 } from './types.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const port = 3000;
 
 // Initialize Supabase client
+// const supabaseClient = createClient(
+//   process.env.VITE_SUPABASE_URL!,
+//   process.env.VITE_SUPABASE_SERVICE_ROLE_KEY!
+// );
 const supabaseClient = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
+
 
 // Middleware
 app.use(express.json());

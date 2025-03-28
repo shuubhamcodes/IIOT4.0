@@ -3,6 +3,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
+import Config from './pages/config';
 import Layout from './components/Layout';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="config" element={<Config />} />
           <Route path="plants" element={<div>Plants page coming soon</div>} />
           <Route path="alerts" element={<div>Alerts page coming soon</div>} />
           <Route path="maintenance" element={<div>Maintenance page coming soon</div>} />
