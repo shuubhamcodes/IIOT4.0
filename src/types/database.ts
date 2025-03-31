@@ -26,5 +26,27 @@ export interface Asset {
   updated_at?: string;
 }
 
-
+export interface MaintenanceTicket {
+  id: string;
+  alert_id: string;
+  description: string;
+  assigned_to: string;
+  status: 'open' | 'in_progress' | 'resolved';
+  created_at: string;
+  updated_at: string;
+  alert?: {
+    id: string;
+    asset_id: string;
+    type: string;
+    severity: 'low' | 'medium' | 'high' | 'critical';
+    message: string;
+    status: 'active' | 'acknowledged' | 'resolved';
+    asset?: {
+      name: string;
+      plant?: {
+        name: string;
+      };
+    };
+  };
+}
 
