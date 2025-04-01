@@ -1,5 +1,3 @@
-Perfect! Here's a comprehensive and professional README for your InsightHub IIoT monitoring project — now explicitly mentioning TypeScript, aligning with the ADM IX Technology Engineer role, and covering everything from stack, features, architecture, setup, and future plans.
-
 ---
 
 # 🛰️ InsightHub — Industrial IoT Monitoring Platform (Built in TypeScript)
