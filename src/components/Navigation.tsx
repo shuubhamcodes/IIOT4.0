@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Factory, Bell, PenTool as Tool, Users, Settings, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Factory, Bell, PenTool as Tool, Users, Settings, Menu, X, Activity } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -11,6 +11,7 @@ interface UserRole {
 const roleBasedNavItems = {
   admin: [
     { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { to: '/analytics', icon: Activity, label: 'Analytics' },
     { to: '/plants', icon: Factory, label: 'Plants' },
     { to: '/alerts', icon: Bell, label: 'Alerts' },
     { to: '/maintenance', icon: Tool, label: 'Maintenance' },
@@ -19,12 +20,14 @@ const roleBasedNavItems = {
   ],
   engineer: [
     { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { to: '/analytics', icon: Activity, label: 'Analytics' },
     { to: '/plants', icon: Factory, label: 'Plants' },
     { to: '/alerts', icon: Bell, label: 'Alerts' },
     { to: '/maintenance', icon: Tool, label: 'Maintenance' },
   ],
   operator: [
     { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { to: '/analytics', icon: Activity, label: 'Analytics' },
     { to: '/plants', icon: Factory, label: 'Plants' },
     { to: '/alerts', icon: Bell, label: 'Alerts' },
   ],
