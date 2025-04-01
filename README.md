@@ -1,3 +1,6 @@
+
+
+
 ---
 
 # 🛰️ InsightHub — Industrial IoT Monitoring Platform (Built in TypeScript)
